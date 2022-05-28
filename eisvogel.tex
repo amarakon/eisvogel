@@ -335,7 +335,7 @@ $highlighting-macros$
 
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs,array}
+\usepackage{tabularx,longtable,booktabs,array}
 $if(multirow)$
 \usepackage{multirow}
 $endif$
@@ -594,7 +594,8 @@ $endif$
 %
 $if(beamer)$
 $else$
-\usepackage[position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
+\usepackage{ragged2e}
+\usepackage[position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$RaggedRight$endif$]{caption}
 \setcapindent{0em}
 $endif$
 
