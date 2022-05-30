@@ -335,7 +335,7 @@ $highlighting-macros$
 
 $endif$
 $if(tables)$
-\usepackage{tabularx,longtable,booktabs,xltabular,array}
+\usepackage{tabularx,booktabs,xltabular,array}
 $if(multirow)$
 \usepackage{multirow}
 $endif$
@@ -619,14 +619,12 @@ $endif$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   $if(fontfamily)$
   $else$
-  \usepackage[default]{sourcesanspro}
-  \usepackage{sourcecodepro}
+  \usepackage{lmodern}
   $endif$
 \else % if not pdftex
   $if(mainfont)$
   $else$
-  \usepackage[default]{sourcesanspro}
-  \usepackage{sourcecodepro}
+  \usepackage{lmodern}
 
   % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
   % This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the
