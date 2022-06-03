@@ -511,7 +511,7 @@ $endif$
 \subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
+\date{$if(date)$$date$$else$\today$endif$}
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
@@ -667,7 +667,7 @@ $else$
 \usepackage{titling}
 \title{$title$}
 \author{$for(author)$$author$$sep$, $endfor$}
-\date{$date$}
+\date{$if(date)$$date$$else$\today$endif$}
 $endif$
 
 %
@@ -847,9 +847,9 @@ $else$
 \fancypagestyle{eisvogel-header-footer}{
   \fancyhead{}
   \fancyfoot{}
-  \lhead[$if(header-right)$$header-right$$else$$date$$endif$]{$if(header-left)$$header-left$$else$$title$$endif$}
+  \lhead[$if(header-right)$$header-right$$else$$if(date)$$date$$else$\today$endif$$endif$]{$if(header-left)$$header-left$$else$$title$$endif$}
   \chead[$if(header-center)$$header-center$$else$$endif$]{$if(header-center)$$header-center$$else$$endif$}
-  \rhead[$if(header-left)$$header-left$$else$$title$$endif$]{$if(header-right)$$header-right$$else$$date$$endif$}
+  \rhead[$if(header-left)$$header-left$$else$$title$$endif$]{$if(header-right)$$header-right$$else$$if(date)$$date$$else$\today$endif$$endif$}
   \lfoot[$if(footer-right)$$footer-right$$else$\thepage$endif$]{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
   \cfoot[$if(footer-center)$$footer-center$$else$$endif$]{$if(footer-center)$$footer-center$$else$$endif$}
   \rfoot[$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$]{$if(footer-right)$$footer-right$$else$\thepage$endif$}
@@ -917,7 +917,7 @@ $if(titlepage-background)$
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$if(date)$$date$$else$\today$endif$}}
   \vfill
 }
 $else$
@@ -942,7 +942,7 @@ $endif$
 
 $if(titlepage-background)$
 $else$
-\textsf{$date$}
+\textsf{$if(date)$$date$$else$\today$endif$}
 $endif$
 \end{flushleft}
 \end{titlepage}
